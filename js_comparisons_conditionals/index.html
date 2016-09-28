@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+  <body>
+    <script>
+        //**********Feature Set1
+        var mySmallNumber;
+        var myString;
+        var myBigNumber;
+
+        mySmallNumber = 5;
+        myString = 5;
+        myBigNumber = 255;
+        //*************Feature Set2
+        var output1;
+        var output2;
+        var output3;
+        var output4;
+
+        output1 = mySmallNumber == myString;
+        output2 = mySmallNumber === myString;
+        output3 = mySmallNumber < myBigNumber;
+        output4 = mySmallNumber > myBigNumber;
+
+        console.log("My output1 = ", output1);
+        console.log("My output2 = ", output2);
+        console.log("My output3 = ", output3);
+        console.log("My output4 = ", output4);
+
+        //**********Feature Set 3
+        var gameNumber;
+        var userInput1;
+        var userInput2;
+
+        gameNumber = 50;
+        userInput1 = 50;
+        userInput2 = 64;
+
+        //**********Feature Set 4
+        if ( userInput1 > gameNumber ) {
+           console.log('The number is too high.');
+        }
+        if ( userInput1 < gameNumber ) {
+            console.log('The number is too low.');
+        }
+        if ( userInput1 < 1 || userInput1 > 100 ) {
+            console.log('The number is out of range.');
+        } else {
+            console.log('The number is in range.');
+        }
+        if ( userInput2 === gameNumber ) {
+            console.log('Hey, how about that? You guessed the right number!');
+        } else {
+            console.log('You guessed..... poorly.  Please try again.');
+        }
+
+        //**********Feature Set 5
+
+        //New Variables to help set the range to compare
+        var lowWarm;
+        var highWarm;
+        var lowCold;
+        var highCold;
+
+        lowWarm = gameNumber - 10;
+        highWarm = gameNumber + 10;
+        lowCold = gameNumber - 25;
+        highCold = gameNumber + 25;
+
+       //Switch Statement begins
+        switch ( true ) {
+            case userInput1 === gameNumber:
+                console.log('You found the correct number!');
+                break;
+
+            case userInput1 < gameNumber && userInput1 >= lowWarm:
+                console.log('Too low but warm.');
+                break;
+
+            case userInput1 > gameNumber && userInput1 <= highWarm:
+                console.log('Too high but warm.');
+                break;
+
+            case userInput1 < lowWarm && userInput1 >= lowCold:
+                console.log('Too low and cold.');
+                break;
+
+            case userInput1 > highWarm && userInput1 <= highCold:
+                console.log('Too high and cold.');
+                break;
+
+            default:  console.log('You are way off!');
+        }
+    </script>
+  </body>
+</html>
