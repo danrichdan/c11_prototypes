@@ -41,12 +41,76 @@
     <script>
         $(document).ready(function () {
             //playground 1 code
+            $('#playground1').append($('<h1>').text('I am a heading'));
+            $('#playground1').append($('<p>').text('This is an awesome paragraph'));
+            $('#playground1').append($('<p>').css('color', 'red').text('This has red text'));
 
             //playground 2 code
+            $('<div.awesome_class:first-of-type>').addClass('awesome_class').text('Here is some awesome div text').appendTo($('#playground2'));
+            $('<div #my_awesome_div2>').addClass('awesome_class').text('Here is MORE awesome div text').appendTo($('#playground2'));
+            //$('<div #my_awesome_div3>').addClass('awesome_class').text('Here is EVEN MORE awesome div text').appendTo($('#playground2'));
+
+            // ADD STRONG TAGS
+            //Changed third div to be the code immediately below to add strong tag
+            var strong = $('<strong>', {
+                text: 'EVEN MORE',
+            });
+            var div3 = $('<div>', {
+                id: 'my_awesome_div3',
+                class: 'awesome_class',
+                text: 'Here is ',
+            });
+            strong.appendTo(div3);
+            div3.appendTo('#playground2');
+            $("#playground2 strong").after(" awesome div text");
+
 
             //playground 3 code
+
+            //NAVIGATION LIST
+            var ul = $('<ul>', {
+                class: 'neato',
+            });
+            var li = $('<li>');
+            var li1 = $('<li>').text('Link 1');
+            var li2 = $('<li>').text('Link 2');
+            var li3 = $('<li>').text('Link 3');
+            ul.appendTo('#playground3');
+            li1.appendTo(ul);
+            li2.appendTo(ul);
+            li3.appendTo(ul);
+
+            //FIGURE SECTION
+            var figure = $('<figure>', {
+                class: 'awesome_picture',
+            });
+
+            var figcaption = $('<figcaption>', {
+                text: 'That\'s right,',
+            });
+            var span = $('<span>', {
+                class: 'bold_text',
+                text: ' you are',
+            });
+            var img = $('<img>', {
+                src: 'http://comerecommended.com/wp-content/uploads/2013/01/how-to-get-awesome-back.jpg',
+            });
+
+            //Putting them together
+            figcaption.append(span);
+            figure.append(img);
+            figure.append(figcaption);
+            figure.appendTo('#playground3');
+
         });
     </script>
+    <!--------
+    <figure class="awesome_picture">
+            <img src="http://comerecommended.com/wp-content/uploads/2013/01/how-to-get-awesome-back.jpg">
+            <figcaption>That's right, <span class="bold_text">you are</span></figcaption>
+        </figure>
+    ------------->
+
 </head>
 <body>
     <!-- ************** Playground 1 ************** -->
