@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            //FEATURE SET 1
+            //Output in ascending order
+            var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            for(var i=0; i < numbers.length; i++) {
+                console.log(numbers[i]);
+
+            };
+            console.log('NEXT CODE ');
+
+            //Output in descending order
+            for(var i=9; i >= 0; i--) {
+                console.log(numbers[i]);
+            };
+            console.log('NEXT CODE ');
+
+            //Output odd numbers
+            for(var i = 0; i < numbers.length; i += 2) {
+                console.log(numbers[i]);
+            };
+            console.log('NEXT CODE ');
+
+            //Mixed Array, no it doesn't output odd numbers.
+            var mixedArray = [4, 56, 11, 13, 97, 22, 7, 36, 19, 5, 8, 10];
+            for(var i =0; i < mixedArray.length; i += 2) {
+                console.log(mixedArray[i]);
+            };
+            console.log('NEXT CODE ');
+
+            //This one puts out odd numbers only, but not quite like we'd want probably.
+            var mixedArray = [4, 56, 11, 13, 97, 22, 7, 36, 19, 5, 8, 10];
+            for(var i =3; i < mixedArray.length; i += 3) {
+                console.log(mixedArray[i]);
+            };
+            console.log('NEXT FEATURE SET');
+
+            //FEATURE SET 2
+            var classRoom = {
+                desk1: 'Stu',
+                desk2: 'Peggy',
+                desk3: 'LoneStar',
+                desk4: 'George',
+                desk5: 'Sheldon'};
+                //For In Loop
+                for (var i in classRoom ) {
+                    console.log(classRoom[i] + ' is at ' + i);
+                };
+            console.log('NEXT FEATURE SET');
+
+            //FEATURE SET 3
+            var studentArray = [
+                {name: "Bob",
+                    grade: 87},
+                {name: "Fred",
+                    grade: 82},
+                {name: "George",
+                    grade: 93},
+                {name: "Robert",
+                    grade: 85}
+            ];
+            function findStudent(name) {
+                var output = '';
+                var i = 0;
+                var found = false;
+                while (!found && i < studentArray.length) {
+                    var student_name = studentArray[i].name;
+                    if (student_name == name) {
+                        output = "Found: " + name + ',' + " Grade: " + studentArray[i].grade;
+                        found = true;
+                    }
+                    i++;
+                    if (!found) {
+                        output = "Student: " + name + " not found.";
+                    }
+                }
+                return output;
+            };
+            console.log("Test 1:", findStudent("Robert"));
+
+
+            /*function findStudent(find_name) {
+                var studentArray = [
+                    {name: "Bob",
+                        grade: 87},
+                    {name: "Fred",
+                        grade: 82},
+                    {name: "George",
+                        grade: 93},
+                    {name: "Robert",
+                        grade: 85}
+                ];
+                var find_name;
+                var student_name = studentArray[i].name;
+                var grade = studentArray[i].grade;
+                var student_found = 'Found ' + student_name + ',' + ' their grade is ' + grade + '.';
+                var student_not_found = 'Student ' + name + ',' + ' not found.';
+                var i =0;
+                while (find_name != student_name && i < studentArray.length ) {
+                    console.log(student_not_found);
+                    i++;
+                } else if (find_name == student_name){
+                    console.log(student_found);
+                }
+
+              }
+            find_name = findStudent('Robert');
+
+             console.log(studentArray[i]);
+             */
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>
