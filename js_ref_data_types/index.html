@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            var student_array = ['Joe',' Jane',' Tom',' Fred',' Doris',];
+
+            //Feature Set 1.0
+            console.log('Student number 3: '+  student_array[2]);
+
+            //Feature Set 1.1
+            console.log('Student Array: ' + student_array);
+            console.log('Array length: ' + student_array.length);
+
+            student_array.push(' Adam',' Johanna');
+            console.log('Added 2 students, new array length: ' + student_array.length);
+            console.log('Student Array: ' + student_array);
+
+            //Feature Set 2.0
+            var student = {};
+            student.firstName = 'John';
+            student.lastName = 'Doe';
+            student.age = 25;
+            student.school = 'Yale';
+            student.questionList = [];
+            student.hasQuestion = false;
+            console.log('Created an object called student ' + student);
+
+            //Feature Set 2.1 - Adding Methods
+
+            //Greeting Function
+            student.greeting = function() {
+                return 'Hello, my name is ' + this.firstName;
+            };
+            console.log("Greeting function: ", student.greeting());
+
+            //About Me Function
+            student.aboutMe = function() {
+                return 'My full name is ' + this.firstName + ' ' + this.lastName + ', I am ' + this.age +
+                        ' years old ' + 'and I am a student at ' + this.school + '.';
+            };
+            console.log('About Me function: ', student.aboutMe());
+
+            //Ask Question Function
+            student.askQuestion = function(question) {
+                student.hasQuestion = true;
+                student.questionList.push('How long will it take to graduate?','How much will it cost?','Where is the school?');
+                return 'A question has been added to your list.';
+            };
+            console.log("Ask Question Function: ", student.askQuestion(student.questionList['']));
+            console.log('Question list: ', student.questionList);
+
+            //Answer Question Function
+            student.answerQuestion = function() {
+                if (student.hasQuestion) {
+                    student.hasQuestion = false;
+                    var lastQuestion = student.questionList.pop();
+                    student.questionList.push(student.questionList.pop());
+                    return lastQuestion;
+                } else  {
+                    return 'You have no pending questions';
+                }
+            };
+            console.log("Answer Question Function: ", student.answerQuestion());
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

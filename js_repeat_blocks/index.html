@@ -61,7 +61,7 @@
                 {name: "Robert",
                     grade: 85}
             ];
-            function findStudent(name) {
+           /* function findStudent(name) {
                 var output = '';
                 var i = 0;
                 var found = false;
@@ -72,13 +72,27 @@
                         found = true;
                     }
                     i++;
-                    if (!found) {
-                        output = "Student: " + name + " not found.";
+                }
+                if (!found) {
+                    output = "Student: " + name + " not found.";
+                }
+                return output;
+            };*/
+            function findStudent2(name) {
+                var output = "Student: " + name + " not found.";
+                var i = 0;
+                var found = false;
+                while (!found && i < studentArray.length) {
+                    var student_name = studentArray[i].name;
+                    if (student_name == name) {
+                        output = "Found: " + name + ',' + " Grade: " + studentArray[i].grade;
+                        found = true;
                     }
+                    i++;
                 }
                 return output;
             };
-            console.log("Test 1:", findStudent("Robert"));
+            console.log("Test 1:", findStudent2("George"));
 
 
             /*function findStudent(find_name) {
