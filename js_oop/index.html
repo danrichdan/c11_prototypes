@@ -3,12 +3,56 @@
 <head>
   <script>
       function coin_stack(starting_amount){
+        var coinsRemoved;
           this.value = starting_amount;
-          console.log(my_coin_stack.value);
-      }
+          this.add_coins = function(coinsToAdd) {
+              this.value = this.value + coinsToAdd;
+          };
+          this.remove_coins = function(coinsToRemove) {
+              if(this.value >= coinsToRemove) {
+                this.value = this.value - coinsToRemove;
+                return coinsToRemove;
 
-    var my_coin_stack  = new coin_stack();
-    my_coin_stack(50);
+              } else {
+                coinsRemoved = this.value;
+                this.value = 0;
+                return coinsRemoved;
+              }
+          }
+      };
+
+      //This is the my_coin_stack object's area
+      var my_coin_stack  = new coin_stack(50);
+      console.log('I have ' + my_coin_stack.value + ' coins in my coin stack.');
+      my_coin_stack.add_coins(15);
+      console.log('I have ' + my_coin_stack.value + ' coins in my coin stack.');
+      my_coin_stack.remove_coins(37);
+      console.log('I have ' + my_coin_stack.value + ' coins in my coin stack.');
+      my_coin_stack.remove_coins(55);
+      console.log('I have ' + my_coin_stack.value + ' coins in my coin stack.');
+
+      //ADDING A NEW METHOD TO ALL OBJECTS
+      coin_stack.prototype.transfer_coins = function(transferer,amount) {
+        var removed = transferer.remove_coins(amount);
+        this.add_coins(removed);
+      };
+
+      //CREATING NEW INSTANCES OF OBJECT AND LOGGING OUT VALUES
+      var erics_coins = new coin_stack(50);
+      console.log('Eric has ' + erics_coins.value + ' coins in his coin stack.');
+
+      var dans_coins = new coin_stack(50);
+      console.log('Dan has ' + dans_coins.value + ' coins in his coin stack.');
+
+      //LOGGING OUT THE FIRST SET OF TRANSFER COINS FROM THE NEW OBJECT INSTANCES
+      erics_coins.transfer_coins(dans_coins,30);
+      console.log('Eric has ' + erics_coins.value + ' coins in his coin stack.');
+      console.log('Dan has ' + dans_coins.value + ' coins in his coin stack.');
+
+      //LOGGING OUT THE SECOND SET OF TRANSFER COINS FROM THE NEW OBJECT INSTANCES
+      dans_coins.transfer_coins(erics_coins,120);
+      console.log('Eric has ' + erics_coins.value + ' coins in his coin stack.');
+      console.log('Dan has ' + dans_coins.value + ' coins in his coin stack.');
 
   </script>
 </head>
