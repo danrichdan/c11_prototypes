@@ -49,7 +49,7 @@
 
 <script>
     var app = angular.module("myApp", []);
-    app.controller('formController', function(){
+    app.controller('formController', function($scope){
         var self = this;
         this.form = {};
         this.form.fName = '';
@@ -82,6 +82,9 @@
         this.formArray = [
 
         ];
+
+    });
+    app.controller(tableController, function($scope){
 
     });
 </script>
