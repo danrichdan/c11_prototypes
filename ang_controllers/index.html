@@ -3,90 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Angular Controllers</title>
-    <!-- Add the AngularJS CDN below -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-    <style>
-        body {
-            padding: 50px;
-        }
-        input,
-        textarea,
-        button {
-            margin-bottom: 10px;
-        }
-
-        button {
-            margin-top: 10px;
-        }
-
-        th,
-        td {
-            padding: 15px;
-        }
-    </style>
 </head>
 <body ng-app="myApp">
   <div ng-controller="formController as fc">
-      First Name: <input type="text" ng-model="fc.form.fName"><br>
-      Last Name: <input type="text" ng-model="fc.form.lName"><br>
-      Email: <input type="email" ng-model="fc.form.email"><br>
-      Comments: <textarea ng-model="fc.form.comments"></textarea><br>
+      First Name: <br>
+      <input type="text" ng-model="fc.formObj.fName"><br>
+      Last Name: <br>
+      <input type="text" ng-model="fc.formObj.lName"><br>
+      Email:<br>
+      <input type="email" ng-model="fc.formObj.email"><br>
+      Comments: <br>
+      <textarea ng-model="fc.formObj.comments"></textarea><br>
       <button ng-click="fc.addValues()">Add Form</button>
-      <table>
-          <tr>
-              <th>Full Name</th>
-              <th>Email</th>
-              <th>Comments</th>
-          </tr>
-          <tr ng-repeat="form in fc.formArray">
-              <td>{{ form.fName + " " + form.lName}}</td>
-              <td>{{ form.email }}</td>
-              <td>{{ form.comments }}</td>
-          </tr>
-      </table>
+      <div ng-controller="tableController as tc">
+          <p>Total Entries: {{tc.numberOfTableEntries()}}</p>
+          <table>
+              <tr>
+                  <th>Full Name</th>
+                  <th>Email</th>
+                  <th>Comments</th>
+                  <th>Action</th>
+              </tr>
+              <tr ng-repeat="info in formArray">
+                  <td>{{info.fName + ' ' + info.lName}}</td>
+                  <td>{{info.email}}</td>
+                  <td>{{info.comments}}</td>
+                  <td><button ng-click="tc.removeObjFromFormArray($index)">Delete</button></td>
+              </tr>
+              <tr>
+                  <td >{{ fc.formObj.fName + " " + fc.formObj.lName}}</td>
+                  <td>{{ fc.formObj.email }}</td>
+                  <td>{{ fc.formObj.comments }}</td>
+              </tr>
+
+          </table>
+      </div>
       <p>Characters remaining: {{fc.charactersLeft()}} </p>
   </div>
-
-<script>
-    var app = angular.module("myApp", []);
-    app.controller('formController', function($scope){
-        var self = this;
-        this.form = {};
-        this.form.fName = '';
-        this.form.lName = '';
-        this.maxLength = 25;
-        this.charactersLeft = function() {
-            if(self.form.comments){
-                var commentsSoFar = self.form.comments.length;
-                var leftOver = self.maxLength - commentsSoFar;
-            } else {
-                leftOver = self.maxLength;
-            }
-
-            return leftOver;
-        };
-
-//        this.randomMethod = function(charactersLeft) {
-//            if(leftOver <= 0){
-//                return true;
-//            } else {
-//                return false;
-//            }
-//        };
-
-        this.addValues = function() {
-            this.formArray.push(this.form);
-            this.form = {};
-        };
-
-        this.formArray = [
-
-        ];
-
-    });
-    app.controller(tableController, function($scope){
-
-    });
-</script>
+  <script src="script.js"></script>
 </body>
 </html>
