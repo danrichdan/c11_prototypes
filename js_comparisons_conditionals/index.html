@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Comparisons and Conditionals</title>
+    <script>
+        //FeatureSet1
+        var mySmallNumber = 5;
+        var myString = "5";
+        var myBigNumber = 255;
+
+        //Feature Set2
+        var output1 = mySmallNumber == myString;
+        console.log('This is the value for output1 : ', output1 );
+
+        var output2 = mySmallNumber === myString;;
+        console.log('This is the value for output2 : ', output2 );
+
+        var output3 = mySmallNumber < myBigNumber;
+        console.log('This is the value for output3 : ', output3 );
+
+        var output4 = mySmallNumber > myBigNumber;
+        console.log('This is the value for output4 : ', output4 );
+
+        //Feature Set3
+        var gameNumber = 64;
+        var userInput1 = 52;
+        var userInput2 = 64;
+
+        //Feature Set4
+        if(userInput1 > gameNumber ){
+            console.log('The number is too high.');
+        };
+        if(userInput1 < gameNumber){
+            console.log('The number is too low.');
+        };
+        if(userInput1 < 1 || userInput1 > 100){
+            console.log('The number is out of range.');
+        } else {
+            console.log('The number is in range.');
+        };
+        if(userInput2 == gameNumber){
+            console.log('The correct number has been guessed.');
+        } else {
+            console.log('Try again')
+        };
+
+        //Feature Set5
+        switch(89){
+            case 64:
+                console.log('You found the correct number!');
+                break;
+            case 54:
+                console.log('Too low but warm');
+                break;
+            case 74:
+                console.log('Too high but warm');
+                break;
+            case 39:
+                console.log('Too low and cold');
+                break;
+            case 89:
+                console.log('Too high and cold');
+                break;
+            default:
+                console.log('You are way off');
+                break;
+        }
+    </script>
+</head>
+<body>
+<code>
+    var mySmallNumber = 5;
+    var myString = "5";
+    var myBigNumber = 255;
+
+    //Feature Set2
+    var output1 = mySmallNumber == myString;
+    console.log('This is the value for output1 : ', output1 );
+
+    var output2 = mySmallNumber === myString;;
+    console.log('This is the value for output2 : ', output2 );
+
+    var output3 = mySmallNumber < myBigNumber;
+    console.log('This is the value for output3 : ', output3 );
+
+    var output4 = mySmallNumber > myBigNumber;
+    console.log('This is the value for output4 : ', output4 );
+</code>
+
+</body>
+</html>
